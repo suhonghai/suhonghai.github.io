@@ -1,0 +1,4 @@
+1.安装依赖中老是报错
+a.可能是安装一个依赖后相对应的依赖的配置没写好导致
+2.You are using the runtime-only build of Vue where the template compiler is not available. Either pre
+https://blog.csdn.net/wxl1555/article/details/83187647
