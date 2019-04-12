@@ -58,6 +58,10 @@ module.exports = (env, argv) => {
                 }
             ]
         },
+        devServer: {
+            host: '0.0.0.0', // can be overwritten by process.env.HOST
+            port: 8889,
+        },
         entry: [
             "babel-polyfill",
             path.join(__dirname, './src/main.js')
