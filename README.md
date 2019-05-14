@@ -1,14 +1,14 @@
 # 个人博客
 * [博客地址](http://suhhai.cn)
 * [github地址](https://github.com/suhonghai/suhonghai.github.io)
-## webpack-vue-cli
+# webpack-vue-cli
 * 用webpack搭建的一个vue项目
 * git clone https://github.com/suhonghai/webpack-vue-cli.git
 * cnpm /npm i
 * cnpm run dev
-## vue双向绑定原理
+# vue双向绑定原理
 * VUE实现双向数据绑定的原理主要是 Object.defineProperty() 方法重新定义了对象获取属性值(get)和设置属性值(set)的操作来实现的.
-## 用字符串返回一个键盘图形
+# 用字符串返回一个键盘图形
 ```javascript
 (_=>[..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x=>(o+=`/${b='_'.repeat(w=x<y?2:' 667699'[x=["BS","TAB","CAPS","ENTER"]
 [p ++]||'SHIFT',p])}\\|`,m+=y+(x+'    ').slice(0,w)+y+y,n+=y+b+y+y,l+=' __'+b)[73]&&(k.push(l,m,n,o),l='',m=n=o=y),m=n=o=y='|',p=l=k=[])&&
@@ -32,7 +32,7 @@ k.join`
 ||_________|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||_________||
 |/_________\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/_________\|
 ```
-## forEach的经验
+# forEach的经验
 * 当数组中元素是值类型，forEach绝对不会改变数组
 ```
 var arr = [1,2,3];
