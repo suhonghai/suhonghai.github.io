@@ -8,7 +8,8 @@
 * cnpm /npm i
 * cnpm run dev
 # vue双向绑定原理
-* VUE实现双向数据绑定的原理主要是 Object.defineProperty() 方法重新定义了对象获取属性值(get)和设置属性值(set)的操作来实现的.
+* VUE实现双向数据绑定的原理主要是 Object.defineProperty() 方法重新定义了对象获取属性值(get)和设置属性值(set)并配合发布者(接受输入框中值的变量)-订阅者(输入框)模式来实现的.
+* [参考一下这位博主的博文](https://www.jianshu.com/p/fd65456eb22f)
 # 用字符串返回一个键盘图形
 ```javascript
 (_=>[..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x=>(o+=`/${b='_'.repeat(w=x<y?2:' 667699'[x=["BS","TAB","CAPS","ENTER"]
@@ -108,11 +109,11 @@ _.uniqWith(objects, _.isEqual);
 //=> [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
 ```
 # vue面试题
-* [借鉴一下这位博主的博客](https://www.jianshu.com/p/863cc38691e8)
+* [借鉴一下这位博主的博文](https://www.jianshu.com/p/863cc38691e8)
 # webpack面试题
-* [借鉴一下这位博主的博客](https://www.jianshu.com/p/bb1e76edc71e)
+* [借鉴一下这位博主的博文](https://www.jianshu.com/p/bb1e76edc71e)
 # 微信小程序面试题
-* [借鉴一下这位博主的博客](https://www.jianshu.com/p/99dd7125d476)
+* [借鉴一下这位博主的博文](https://www.jianshu.com/p/99dd7125d476)
 
 
 
