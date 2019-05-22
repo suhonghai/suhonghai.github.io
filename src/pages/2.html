@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="func()">计数!</button>
+    <script>
+        // var fun = (function() {
+        //     var a = 1;
+        //     return function() {
+        //         console.log(a)
+        //         return a *= 3
+        //     }
+        // })();
+        // fun();
+
+        // function fun1() {
+        //     var a = 1;
+
+        //     function fun2() {
+        //         console.log(a)
+
+        //     }
+        // }
+        // fun1();
+
+        function func() {
+            let a = 1,
+                function closure() {
+                    console.log(a)
+                    a *= 2;
+                }
+            return closure;
+        }
+        func()
+        func()
+        func()
+            // var fun = func();
+    </script>
+</body>
+
+</html>
