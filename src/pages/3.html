@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const result = add(3, 2) // 使用function直接声明非匿名函数可以实现“函数声明提升”
+        function add(a, b) {
+            debugger
+            return a + b
+        }
+        const value = add(1, 2)
+    </script>
+</body>
+
+</html>
