@@ -196,6 +196,9 @@ function closure() {
 * [借鉴一下这位博主的博文](https://juejin.im/post/5ce376c751882533207bad67#heading-0)
 ## push和concat的比较
 * [借鉴一下这位博主的博文](https://juejin.im/post/5cd67fb9f265da037129bb64)
+## 动画
+* [欣赏动画](http://magickeyboard.io/)
+
 
 
 
