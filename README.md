@@ -197,7 +197,10 @@ function closure() {
 ## push和concat的比较
 * [借鉴一下这位博主的博文](https://juejin.im/post/5cd67fb9f265da037129bb64)
 ## 动画
-* [欣赏动画](http://magickeyboard.io/)
+* [借鉴一下这位博主的博文](http://magickeyboard.io/)
+## 从URL输入到页面展现背后发生的事
+* [借鉴一下这位博主的博文](https://juejin.im/post/5ca217a051882543f252dc1e)
+
 
 
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body onclick="bodyClick()">
+
+    <div onclick="divClick()">
+        <button onclick="btn()">
+             <p onclick="p()">点击冒泡</p>
+         </button>
+    </div>
+    <script>
+        function p() {
+            alert('p标签被点击')
+        }
+
+        function btn() {
+            alert("button被点击")
+        }
+
+        function divClick(event) {
+            alert('div被点击');
+        }
+
+        function bodyClick() {
+            alert('body被点击')
+        }
+    </script>
+
+</body>
+
+</html>
