@@ -200,6 +200,12 @@ function closure() {
 * [借鉴一下这位博主的博文](http://magickeyboard.io/)
 ## 从URL输入到页面展现背后发生的事
 * [借鉴一下这位博主的博文](https://juejin.im/post/5ca217a051882543f252dc1e)
+# 搭建一个简单的vue框架教程
+* [借鉴一下这位博主的博文](https://segmentfault.com/a/1190000009846314)
+# vue源码解析
+* [借鉴一下这位博主的博文](https://www.cnblogs.com/tiedaweishao/p/8933153.html)
+
+
 
 
 

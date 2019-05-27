@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <app></app>
+    <script src="js/my_vue.js"></script>
+    <script id="t1" type="text/html">
+        <div>
+            <span>
+                {{a}}
+                {{bb}}
+                {{cc}}
+            </span>
+        </div>
+    </script>
+    <script>
+        var qv = new QV({
+            el: 'app',
+            template: '#t1',
+            data: {
+                a: 'aaa',
+                bb: 'bbb',
+                cc: 'ccc'
+            }
+
+        })
+    </script>
+</body>
+
+
+</html>
