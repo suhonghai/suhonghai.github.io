@@ -204,6 +204,12 @@ function closure() {
 * [借鉴一下这位博主的博文](https://segmentfault.com/a/1190000009846314)
 # vue源码解析
 * [借鉴一下这位博主的博文](https://www.cnblogs.com/tiedaweishao/p/8933153.html)
+# 代码神注释
+* [借鉴一下这位博主的博文](https://mp.weixin.qq.com/s/jlYUzsyUb76RExsoFz4S2w)
+# Vue.js从Virtual DOM映射到真实DOM的过程
+* [借鉴一下这位博主的博文](https://juejin.im/post/5b86f6cc5188256fd44c0ce9)
+
+
 
 
 
