@@ -222,6 +222,18 @@ function closure() {
 1:文件->新建->wap2app输入名称和项目url就行
 2:[其他配置参考](http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/1244) 
 ```
+# vue生命周期
+```javascript
+=>
+1:new Vue(),创建vue对象,执行beforeCreated,这个时候，数据还没有挂载呢，只是一个空壳，无法访问到数据和真实的dom，一般不做操作.
+2:挂载数据，绑定事件等等,自己声明的数据和事件,这里可以修改变量的值通过调用created函数来修改.
+3:找实例或者组件对应的模板，编译模板为虚拟dom放入到render函数中准备渲染.可以执行beforeMount钩子函数(创建好虚拟dom,可以修改数据).
+4:开始render，渲染出真实dom，然后执行mounted钩子函数(组件已经出现在页面中，数据、真实dom都已经处理好了,事件都已经挂载好了，可以在这里操作真实dom等事情).
+5:当组件或实例的数据更改之后，会立即执行beforeUpdate(vue的虚拟dom机制会重新构建虚拟dom与上一次的虚拟dom树利用diff算法进行对比之后重新渲染，一般不做什么事儿).
+6:当更新完成后，执行updated，数据已经更改完成，dom也重新render完成，可以操作更新后的虚拟dom.
+7:当经过某种途径调用$destroy方法后，立即执行beforeDestroy，一般在这里做一些善后工作，例如清除计时器、清除非指令绑定的事件等等.
+8:组件的数据绑定、监听...去掉后只剩下dom空壳，这个时候，执行destroyed，在这里做善后工作也可以.
+```
 
 
 
