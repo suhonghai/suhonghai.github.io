@@ -208,7 +208,20 @@ function closure() {
 * [借鉴一下这位博主的博文](https://mp.weixin.qq.com/s/jlYUzsyUb76RExsoFz4S2w)
 # Vue.js从Virtual DOM映射到真实DOM的过程
 * [借鉴一下这位博主的博文](https://juejin.im/post/5b86f6cc5188256fd44c0ce9)
-
+# Hbuilder 打包vue生成原生App
+## Hbuilder直接打包原有的webApp
+```javascript
+=>
+1:将原有的webApp转换成移动App
+2:点击发行云打包,直接打包成安卓和ios的ipa和apk文件
+2:打包时注意配置一下应用的图标,用过的sdk和模块权限配置
+```
+## Hbuilder根据发布的webApp的网站url地址用wap2app来打包(这种打包方式只需要你发布的网站地址就可以打包)
+```javascript
+=>
+1:文件->新建->wap2app输入名称和项目url就行
+2:[其他配置参考](http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/1244) 
+```
 
 
 
