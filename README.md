@@ -234,6 +234,8 @@ function closure() {
 7:当经过某种途径调用$destroy方法后，立即执行beforeDestroy，一般在这里做一些善后工作，例如清除计时器、清除非指令绑定的事件等等.
 8:组件的数据绑定、监听...去掉后只剩下dom空壳，这个时候，执行destroyed，在这里做善后工作也可以.
 ```
+# 2019前端面试题
+[借鉴一下这位博主的博文](https://blog.csdn.net/weixin_43624724/article/details/86519903) 
 
 
 
