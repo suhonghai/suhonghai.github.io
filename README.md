@@ -220,7 +220,7 @@ function closure() {
 ```javascript
 =>
 1:文件->新建->wap2app输入名称和项目url就行
-2:[其他配置参考](http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/1244) 
+2:[其他配置参考](http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/1244)
 ```
 # vue生命周期
 ```javascript
@@ -236,6 +236,8 @@ function closure() {
 ```
 # 2019前端面试题
 * [借鉴一下这位博主的博文](https://blog.csdn.net/weixin_43624724/article/details/86519903) 
+# 有意思的网站
+* [webOne](http://weavesilk.com/) 
 
 
 
