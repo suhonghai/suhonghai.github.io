@@ -237,6 +237,7 @@ function closure() {
 # 2019前端面试题
 * [借鉴一下这位博主的博文](https://blog.csdn.net/weixin_43624724/article/details/86519903) 
 # 有意思的网站
+* [借鉴一下这位博主的博文](https://www.zhihu.com/question/26380791/answer/545777803) 
 * [webOne](http://weavesilk.com/) 
 
 
