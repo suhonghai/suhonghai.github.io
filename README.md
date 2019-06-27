@@ -239,6 +239,11 @@ function closure() {
 * [借鉴一下这位博主的博文](https://juejin.im/post/5d0644976fb9a07ed064b0ca) 
 * [借鉴一下这位博主的博文](https://juejin.im/post/5cddf289f265da038f77696c#heading-44)
 * [借鉴一下这位博主的博文es678910](https://juejin.im/post/5ca2e1935188254416288eb2#heading-43)
+* url 从输入到渲染完成经历了哪些过程
+```javascript
+=>
+输入网址；发送到DNS服务器，并获取域名对应的web服务器对应的ip地址；与web服务器建立TCP连接；浏览器向web服务器发送http请求；web服务器响应请求，并返回指定url的数据；浏览器下载web服务器返回的数据及解析html源文件；生成DOM树，解析css和js，渲染页面，直至显示完成；
+```
 # 有意思的网站
 * [借鉴一下这位博主的博文](https://www.zhihu.com/question/26380791/answer/545777803) 
 * [webOne](http://weavesilk.com/) 
