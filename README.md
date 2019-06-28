@@ -245,6 +245,7 @@ function closure() {
 输入网址；发送到DNS服务器，并获取域名对应的web服务器对应的ip地址；与web服务器建立TCP连接；浏览器向web服务器发送http请求；web服务器响应请求，并返回指定url的数据；浏览器下载web服务器返回的数据及解析html源文件；生成DOM树，解析css和js，渲染页面，直至显示完成；
 ```
 * [借鉴一下这位博主的博文(前端面试题汇总)](https://github.com/jirengu/frontend-interview/issues)
+* [借鉴一下这位博主的博文(前端面试题汇总)](https://zhuanlan.zhihu.com/p/45057871)
 * [借鉴一下这位博主的博文(跨域)](https://zhuanlan.zhihu.com/p/60019674)
 # 有意思的网站
 * [借鉴一下这位博主的博文](https://www.zhihu.com/question/26380791/answer/545777803) 
