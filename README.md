@@ -247,6 +247,7 @@ function closure() {
 * [借鉴一下这位博主的博文(前端面试题汇总)](https://github.com/jirengu/frontend-interview/issues)
 * [借鉴一下这位博主的博文(前端面试题汇总)](https://zhuanlan.zhihu.com/p/45057871)
 * [借鉴一下这位博主的博文(跨域)](https://zhuanlan.zhihu.com/p/60019674)
+* [借鉴一下这位博主的博文(h5+网络及网络状态获取)](http://www.hcoder.net/tutorials/info_98.html)
 # 有意思的网站
 * [借鉴一下这位博主的博文](https://www.zhihu.com/question/26380791/answer/545777803) 
 * [webOne](http://weavesilk.com/) 
