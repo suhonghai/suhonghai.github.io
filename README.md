@@ -249,6 +249,8 @@ function closure() {
 * [借鉴一下这位博主的博文(跨域)](https://zhuanlan.zhihu.com/p/60019674)
 * [借鉴一下这位博主的博文(h5+网络及网络状态获取)](http://www.hcoder.net/tutorials/info_98.html)
 * [借鉴一下这位博主的博文(git生成ssh)](https://www.cnblogs.com/chenguiya/p/9497722.html)
+* [借鉴一下这位博主的博文(雪碧图生成动图)](https://segmentfault.com/a/1190000009789225)
+
 # 有意思的网站
 * [借鉴一下这位博主的博文](https://www.zhihu.com/question/26380791/answer/545777803) 
 * [webOne](http://weavesilk.com/) 
