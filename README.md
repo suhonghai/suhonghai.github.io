@@ -256,3 +256,6 @@ function closure() {
 * [webOne](http://weavesilk.com/) 
 # hbuilder+h5
 * [借鉴一下这位博主的博文(个推解决方法)](https://ask.dcloud.net.cn/article/36180)
+# vue源码
+* [借鉴一下这位博主的博文(vue源码解析)](https://juejin.im/post/5c371fd76fb9a049e23236ad)
+
