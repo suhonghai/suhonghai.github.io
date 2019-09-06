@@ -59,7 +59,7 @@ module.exports = (env, argv) => {
             ]
         },
         devServer: {
-            host: '0.0.0.0', // can be overwritten by process.env.HOST
+            host: 'localhost', // can be overwritten by process.env.HOST
             port: 8889,
         },
         entry: [
