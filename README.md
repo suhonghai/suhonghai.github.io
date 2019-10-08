@@ -258,5 +258,21 @@ function closure() {
 * [借鉴一下这位博主的博文(个推解决方法)](https://ask.dcloud.net.cn/article/36180)
 # vue源码
 * [借鉴一下这位博主的博文(vue源码解析)](https://juejin.im/post/5c371fd76fb9a049e23236ad)
-
-
+* 解决移动端苹果手机点击input会向上移动的问题和点击其他地方不会失去焦点
+```javascript
+document.getElementById('pwd').addEventListener('focus', function() {
+		document.body.scrollTop = 0
+	})
+	
+	document.body.addEventListener('touchmove', function(e) {
+		document.documentElement.scrollTop = 0;
+		e.preventDefault();
+	}, {
+		passive: false
+	}); //passive 参数不能省略，用来兼容ios和android
+	document.querySelector('body').addEventListener('touchend', function(e) {
+		if (e.target.className != 'input') {
+			document.getElementById('pwd').blur();
+		}
+	});
+```
