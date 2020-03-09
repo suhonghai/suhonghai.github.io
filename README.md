@@ -13,7 +13,7 @@
 
 # css 重置样式地址
 
-[重置样式地址](https://meyerweb.com/eric/tools/css/reset/index.html)
+-   [重置样式地址](https://meyerweb.com/eric/tools/css/reset/index.html)
 
 # vue 双向绑定原理
 
