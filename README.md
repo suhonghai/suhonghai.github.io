@@ -20,6 +20,10 @@
 -   VUE 实现双向数据绑定的原理主要是 Object.defineProperty() 方法重新定义了对象获取属性值(get)和设置属性值(set)并配合发布者(接受输入框中值的变量)-订阅者(输入框)模式来实现的.
 -   [参考一下这位博主的博文](https://www.jianshu.com/p/fd65456eb22f)
 
+# webpack 优化之 preload 和 prefetch
+
+-   [参考一下这位博主的博文](https://www.jianshu.com/p/d2152789759d)
+
 # 用字符串返回一个键盘图形
 
 ```javascript
