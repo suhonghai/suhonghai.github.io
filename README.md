@@ -1,22 +1,53 @@
 # 个人博客
-* [博客地址](http://suhhai.cn)
-* [GitHub地址](https://github.com/suhonghai/suhonghai.github.io)
-* [GitHub Pages地址](https://sue.suhhai.cn/)
+
+-   [博客地址](http://suhhai.cn)
+-   [GitHub 地址](https://github.com/suhonghai/suhonghai.github.io)
+-   [GitHub Pages 地址](https://sue.suhhai.cn/)
+
 # webpack-vue-cli
-* 用webpack搭建的一个vue项目
-* git clone https://github.com/suhonghai/webpack-vue-cli.git
-* cnpm /npm i
-* cnpm run dev
-# vue双向绑定原理
-* VUE实现双向数据绑定的原理主要是 Object.defineProperty() 方法重新定义了对象获取属性值(get)和设置属性值(set)并配合发布者(接受输入框中值的变量)-订阅者(输入框)模式来实现的.
-* [参考一下这位博主的博文](https://www.jianshu.com/p/fd65456eb22f)
+
+-   用 webpack 搭建的一个 vue 项目
+-   git clone https://github.com/suhonghai/webpack-vue-cli.git
+-   cnpm /npm i
+-   cnpm run dev
+
+# css 重置样式地址
+
+[重置样式地址](https://meyerweb.com/eric/tools/css/reset/index.html)
+
+# vue 双向绑定原理
+
+-   VUE 实现双向数据绑定的原理主要是 Object.defineProperty() 方法重新定义了对象获取属性值(get)和设置属性值(set)并配合发布者(接受输入框中值的变量)-订阅者(输入框)模式来实现的.
+-   [参考一下这位博主的博文](https://www.jianshu.com/p/fd65456eb22f)
+
 # 用字符串返回一个键盘图形
+
 ```javascript
-(_=>[..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x=>(o+=`/${b='_'.repeat(w=x<y?2:' 667699'[x=["BS","TAB","CAPS","ENTER"]
-[p ++]||'SHIFT',p])}\\|`,m+=y+(x+'    ').slice(0,w)+y+y,n+=y+b+y+y,l+=' __'+b)[73]&&(k.push(l,m,n,o),l='',m=n=o=y),m=n=o=y='|',p=l=k=[])&&
-k.join`
+;(_ =>
+	[..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(
+		x =>
+			((o += `/${(b = '_'.repeat(
+				(w =
+					x < y
+						? 2
+						: ' 667699'[
+								((x =
+									['BS', 'TAB', 'CAPS', 'ENTER'][p++] ||
+									'SHIFT'),
+								p)
+						  ])
+			))}\\|`),
+			(m += y + (x + '    ').slice(0, w) + y + y),
+			(n += y + b + y + y),
+			(l += ' __' + b))[73] &&
+			(k.push(l, m, n, o), (l = ''), (m = n = o = y)),
+		(m = n = o = y = '|'),
+		(p = l = k = [])
+	) &&
+	k.join`
 `)()
 ```
+
 ```javascript
 ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ________
 ||` |||1 |||2 |||3 |||4 |||5 |||6 |||7 |||8 |||9 |||0 |||- |||= |||BS    ||
@@ -35,27 +66,34 @@ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ________
 ||_________|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||_________||
 |/_________\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/_________\|
 ```
-# forEach的经验
-* 当数组中元素是值类型，forEach绝对不会改变数组
+
+# forEach 的经验
+
+-   当数组中元素是值类型，forEach 绝对不会改变数组
+
 ```javascript
-var arr = [1,2,3];
+var arr = [1, 2, 3]
 arr.forEach(a => {
-  a = a * 2}
-)
+	a = a * 2
+})
 // => [1,2,3]
 ```
-* 当是引用类型，则可以改变数组
+
+-   当是引用类型，则可以改变数组
+
 ```javascript
 var arr = [
-   {name:'张三',age:18},
-   {name:'李四',age:19}
-];
-arr1.forEach(a => { 
-  a.age = a.age + 1}
-);
+	{ name: '张三', age: 18 },
+	{ name: '李四', age: 19 }
+]
+arr1.forEach(a => {
+	a.age = a.age + 1
+})
 //=> [{name:'张三',age:19},{name:'李四',age:20}]
 ```
-* forEach 不支持链式调用,有返回值的支持链式调用.
+
+-   forEach 不支持链式调用,有返回值的支持链式调用.
+
 ```javascript
 let arr = [1,2,3,4]
 arr.forEach(a=>{
@@ -70,21 +108,29 @@ arr.filter(a=>{
     return a > 1
 }).sort((a,b)=>{
     return a > b
-})    
+})
 ```
-# sort排序
-* 比较值类型
+
+# sort 排序
+
+-   比较值类型
+
 ```javascript
 [5,2,3,4].sort((a,b)=>{return a - b})
 =>比较值类型 a-b 从小到大 b-a从大到小
 ```
-* 比较引用类型
+
+-   比较引用类型
+
 ```javascript
 [{name:'张三',age:'10'},{name:'李四',age:'19'}].sort((a,b)=>{return a.age - b.age})
 =>比较值类型 a-b 从小到大 b-a从大到小
 ```
-# set去重
-* new set() 得到的值是一个对象,可以使用add()方法,add相同的值添加不进去,但是添加的是相同的引用类型可以添加(它的缺点,不能去重元素是引用对象的数组)
+
+# set 去重
+
+-   new set() 得到的值是一个对象,可以使用 add()方法,add 相同的值添加不进去,但是添加的是相同的引用类型可以添加(它的缺点,不能去重元素是引用对象的数组)
+
 ```javascript
 let tempArr = new Set([1,2,3,3,4,4,5])
 tempArr.add(1)
@@ -101,20 +147,34 @@ console.log([...tempArr])
 5: {name: "张三"}
 6: {name: "张三"}
 ```
-# Lodash 的 _.uniqWith()去重
+
+# Lodash 的 \_.uniqWith()去重
+
 ```javascript
 // import _ from 'lodash';
-var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
-_.uniqWith(objects, _.isEqual);
+var objects = [
+	{ x: 1, y: 2 },
+	{ x: 2, y: 1 },
+	{ x: 1, y: 2 }
+]
+_.uniqWith(objects, _.isEqual)
 //=> [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
 ```
-# vue面试题
-* [借鉴一下这位博主的博文](https://www.jianshu.com/p/863cc38691e8)
-# webpack面试题
-* [借鉴一下这位博主的博文](https://www.jianshu.com/p/bb1e76edc71e)
+
+# vue 面试题
+
+-   [借鉴一下这位博主的博文](https://www.jianshu.com/p/863cc38691e8)
+
+# webpack 面试题
+
+-   [借鉴一下这位博主的博文](https://www.jianshu.com/p/bb1e76edc71e)
+
 # 微信小程序面试题
-* [借鉴一下这位博主的博文](https://www.jianshu.com/p/99dd7125d476)
+
+-   [借鉴一下这位博主的博文](https://www.jianshu.com/p/99dd7125d476)
+
 # javaScript 闭包
+
 ```javascript
 //菜鸟教程标准代码
 var fun = (function() {
@@ -127,20 +187,20 @@ var fun = (function() {
 fun();
 fun();
 先解释一下闭包:闭包就是指有权访问另一个函数作用域中的变量的函数.
-在上面代码中fun = 一个自执行函数,这个函数运行后返回了一个匿名函数,所以我们可以看到 
+在上面代码中fun = 一个自执行函数,这个函数运行后返回了一个匿名函数,所以我们可以看到
 fun = function() {
     console.log(a)
     return a *= 3
 }
 你也可以通过console.log(fun)也能得到fun等于这个函数.
-当你在后面一直执行 fun(); 时其实就是在执行 
-console.log(a) 
+当你在后面一直执行 fun(); 时其实就是在执行
+console.log(a)
 return a *= 3
 所以你会看到打印出来的值就是:
 =>
  1
- 3 
-所以在这里我们的 fun函数 就是一个闭包,里面的 
+ 3
+所以在这里我们的 fun函数 就是一个闭包,里面的
 function() {
     console.log(a)
     return a *= 3
@@ -154,10 +214,13 @@ function() {
         return a *= 3
     }
 }
-作用域中的变量 a.        
+作用域中的变量 a.
 ```
+
 ## 闭包注意事项
-* 我们自己测试闭包时可能会这样写
+
+-   我们自己测试闭包时可能会这样写
+
 ```javascript
 function func() {
         let a = 1,
@@ -170,7 +233,7 @@ function func() {
 func()
 func()
 func()
-你会发现什么都没打印,因为我们现在的func运行后 = 
+你会发现什么都没打印,因为我们现在的func运行后 =
 function closure() {
         console.log(a)
         a *= 2;
@@ -178,7 +241,9 @@ function closure() {
 你可以 let fun = func();
 在运行 fun(); fun();就好了
 ```
-* 如果你把 closure 写在外面,像这样
+
+-   如果你把 closure 写在外面,像这样
+
 ```javascript
 function func() {
         let a = 1
@@ -191,38 +256,62 @@ function closure() {
 但是你在这里运行 closure();肯定报错 a未定义,很明显在这里拿不到a的值,因为它在函数func作用域里面你肯定拿不到,
 为什么在函数func里面 return closure; 之后就可以访问了呢(这就是闭包的神奇之处){看别人的解释就是说:正常函数执行完之后变量会被销毁,但是在func函数执行之后因为它返回了一个函数,这个函数里面要用到 func中的变量(这里就是a变量),所以a还未来的及销毁,所以我们在后面就可以用到这个变量了}
 ```
-* 闭包虽然可以用到上层函数中的变量,但是也仅限于在返回函数中定义的逻辑(就是说你在其他地方写a = 100,肯定不起作用的),实在要问为什么那只能说这就是闭包,闭包就这样.
+
+-   闭包虽然可以用到上层函数中的变量,但是也仅限于在返回函数中定义的逻辑(就是说你在其他地方写 a = 100,肯定不起作用的),实在要问为什么那只能说这就是闭包,闭包就这样.
+
 ## 闭包理解
-* [借鉴一下这位博主的博文](https://juejin.im/post/5ce376c751882533207bad67#heading-0)
-## push和concat的比较
-* [借鉴一下这位博主的博文](https://juejin.im/post/5cd67fb9f265da037129bb64)
+
+-   [借鉴一下这位博主的博文](https://juejin.im/post/5ce376c751882533207bad67#heading-0)
+
+## push 和 concat 的比较
+
+-   [借鉴一下这位博主的博文](https://juejin.im/post/5cd67fb9f265da037129bb64)
+
 ## 动画
-* [借鉴一下这位博主的博文](http://magickeyboard.io/)
-## 从URL输入到页面展现背后发生的事
-* [借鉴一下这位博主的博文](https://juejin.im/post/5ca217a051882543f252dc1e)
-# 搭建一个简单的vue框架教程
-* [借鉴一下这位博主的博文](https://segmentfault.com/a/1190000009846314)
-# vue源码解析
-* [借鉴一下这位博主的博文](https://www.cnblogs.com/tiedaweishao/p/8933153.html)
+
+-   [借鉴一下这位博主的博文](http://magickeyboard.io/)
+
+## 从 URL 输入到页面展现背后发生的事
+
+-   [借鉴一下这位博主的博文](https://juejin.im/post/5ca217a051882543f252dc1e)
+
+# 搭建一个简单的 vue 框架教程
+
+-   [借鉴一下这位博主的博文](https://segmentfault.com/a/1190000009846314)
+
+# vue 源码解析
+
+-   [借鉴一下这位博主的博文](https://www.cnblogs.com/tiedaweishao/p/8933153.html)
+
 # 代码神注释
-* [借鉴一下这位博主的博文](https://mp.weixin.qq.com/s/jlYUzsyUb76RExsoFz4S2w)
-# Vue.js从Virtual DOM映射到真实DOM的过程
-* [借鉴一下这位博主的博文](https://juejin.im/post/5b86f6cc5188256fd44c0ce9)
-# Hbuilder 打包vue生成原生App
-## Hbuilder直接打包原有的webApp
+
+-   [借鉴一下这位博主的博文](https://mp.weixin.qq.com/s/jlYUzsyUb76RExsoFz4S2w)
+
+# Vue.js 从 Virtual DOM 映射到真实 DOM 的过程
+
+-   [借鉴一下这位博主的博文](https://juejin.im/post/5b86f6cc5188256fd44c0ce9)
+
+# Hbuilder 打包 vue 生成原生 App
+
+## Hbuilder 直接打包原有的 webApp
+
 ```javascript
 =>
 1:将原有的webApp转换成移动App
 2:点击发行云打包,直接打包成安卓和ios的ipa和apk文件
 2:打包时注意配置一下应用的图标,用过的sdk和模块权限配置
 ```
-## Hbuilder根据发布的webApp的网站url地址用wap2app来打包(这种打包方式只需要你发布的网站地址就可以打包)
+
+## Hbuilder 根据发布的 webApp 的网站 url 地址用 wap2app 来打包(这种打包方式只需要你发布的网站地址就可以打包)
+
 ```javascript
 =>
 1:文件->新建->wap2app输入名称和项目url就行
 2:[其他配置参考](http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/1244)
 ```
-# vue生命周期
+
+# vue 生命周期
+
 ```javascript
 =>
 1:new Vue(),创建vue对象,执行beforeCreated,这个时候，数据还没有挂载呢，只是一个空壳，无法访问到数据和真实的dom，一般不做操作.
@@ -234,45 +323,59 @@ function closure() {
 7:当经过某种途径调用$destroy方法后，立即执行beforeDestroy，一般在这里做一些善后工作，例如清除计时器、清除非指令绑定的事件等等.
 8:组件的数据绑定、监听...去掉后只剩下dom空壳，这个时候，执行destroyed，在这里做善后工作也可以.
 ```
-# 2019前端面试题
-* [借鉴一下这位博主的博文](https://blog.csdn.net/weixin_43624724/article/details/86519903) 
-* [借鉴一下这位博主的博文](https://juejin.im/post/5d0644976fb9a07ed064b0ca) 
-* [借鉴一下这位博主的博文](https://juejin.im/post/5cddf289f265da038f77696c#heading-44)
-* [借鉴一下这位博主的博文es678910](https://juejin.im/post/5ca2e1935188254416288eb2#heading-43)
-* url 从输入到渲染完成经历了哪些过程
+
+# 2019 前端面试题
+
+-   [借鉴一下这位博主的博文](https://blog.csdn.net/weixin_43624724/article/details/86519903)
+-   [借鉴一下这位博主的博文](https://juejin.im/post/5d0644976fb9a07ed064b0ca)
+-   [借鉴一下这位博主的博文](https://juejin.im/post/5cddf289f265da038f77696c#heading-44)
+-   [借鉴一下这位博主的博文 es678910](https://juejin.im/post/5ca2e1935188254416288eb2#heading-43)
+-   url 从输入到渲染完成经历了哪些过程
+
 ```javascript
 =>
 输入网址；发送到DNS服务器，并获取域名对应的web服务器对应的ip地址；与web服务器建立TCP连接；浏览器向web服务器发送http请求；web服务器响应请求，并返回指定url的数据；浏览器下载web服务器返回的数据及解析html源文件；生成DOM树，解析css和js，渲染页面，直至显示完成；
 ```
-* [借鉴一下这位博主的博文(前端面试题汇总)](https://github.com/jirengu/frontend-interview/issues)
-* [借鉴一下这位博主的博文(前端面试题汇总)](https://zhuanlan.zhihu.com/p/45057871)
-* [借鉴一下这位博主的博文(跨域)](https://zhuanlan.zhihu.com/p/60019674)
-* [借鉴一下这位博主的博文(h5+网络及网络状态获取)](http://www.hcoder.net/tutorials/info_98.html)
-* [借鉴一下这位博主的博文(git生成ssh)](https://www.cnblogs.com/chenguiya/p/9497722.html)
-* [借鉴一下这位博主的博文(雪碧图生成动图)](https://segmentfault.com/a/1190000009789225)
+
+-   [借鉴一下这位博主的博文(前端面试题汇总)](https://github.com/jirengu/frontend-interview/issues)
+-   [借鉴一下这位博主的博文(前端面试题汇总)](https://zhuanlan.zhihu.com/p/45057871)
+-   [借鉴一下这位博主的博文(跨域)](https://zhuanlan.zhihu.com/p/60019674)
+-   [借鉴一下这位博主的博文(h5+网络及网络状态获取)](http://www.hcoder.net/tutorials/info_98.html)
+-   [借鉴一下这位博主的博文(git 生成 ssh)](https://www.cnblogs.com/chenguiya/p/9497722.html)
+-   [借鉴一下这位博主的博文(雪碧图生成动图)](https://segmentfault.com/a/1190000009789225)
 
 # 有意思的网站
-* [借鉴一下这位博主的博文](https://www.zhihu.com/question/26380791/answer/545777803) 
-* [webOne](http://weavesilk.com/) 
+
+-   [借鉴一下这位博主的博文](https://www.zhihu.com/question/26380791/answer/545777803)
+-   [webOne](http://weavesilk.com/)
+
 # hbuilder+h5
-* [借鉴一下这位博主的博文(个推解决方法)](https://ask.dcloud.net.cn/article/36180)
-# vue源码
-* [借鉴一下这位博主的博文(vue源码解析)](https://juejin.im/post/5c371fd76fb9a049e23236ad)
-* 解决移动端苹果手机点击input会向上移动的问题和点击其他地方不会失去焦点
+
+-   [借鉴一下这位博主的博文(个推解决方法)](https://ask.dcloud.net.cn/article/36180)
+
+# vue 源码
+
+-   [借鉴一下这位博主的博文(vue 源码解析)](https://juejin.im/post/5c371fd76fb9a049e23236ad)
+-   解决移动端苹果手机点击 input 会向上移动的问题和点击其他地方不会失去焦点
+
 ```javascript
 document.getElementById('pwd').addEventListener('focus', function() {
-		document.body.scrollTop = 0
-	})
-	
-	document.body.addEventListener('touchmove', function(e) {
-		document.documentElement.scrollTop = 0;
-		e.preventDefault();
-	}, {
+	document.body.scrollTop = 0
+})
+
+document.body.addEventListener(
+	'touchmove',
+	function(e) {
+		document.documentElement.scrollTop = 0
+		e.preventDefault()
+	},
+	{
 		passive: false
-	}); //passive 参数不能省略，用来兼容ios和android
-	document.querySelector('body').addEventListener('touchend', function(e) {
-		if (e.target.className != 'input') {
-			document.getElementById('pwd').blur();
-		}
-	});
+	}
+) //passive 参数不能省略，用来兼容ios和android
+document.querySelector('body').addEventListener('touchend', function(e) {
+	if (e.target.className != 'input') {
+		document.getElementById('pwd').blur()
+	}
+})
 ```
