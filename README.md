@@ -383,3 +383,39 @@ document.querySelector('body').addEventListener('touchend', function(e) {
 	}
 })
 ```
+
+# vue 脚手架 3.0 和 2.0 按需加载 elementui 组件
+
+```javascript
+=>
+1:npm install babel-plugin-component -D
+2:babel.config.js 或者 .babelrc中添加如下代码（vue-cli3.0 默认创建babel.config.js，.babelrc属于vue-cli2.0默认创建在3.0中没有）
+3.vue-cli 3.0配置
+{
+  "presets": [["@babel/preset-env", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+npm install @babel/preset-env -D
+
+4.vue-cli 2.0配置
+{
+  "presets": [["es2015", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+```
