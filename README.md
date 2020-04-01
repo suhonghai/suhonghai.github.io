@@ -419,3 +419,144 @@ npm install @babel/preset-env -D
   ]
 }
 ```
+
+# vscode 插件
+
+> **1.KoroFileHeader 函数注释 (setting.json 复制如下代码)**
+
+```javascript
+// 文件头部注释
+    "fileheader.customMade": {
+        "Descripttion":"",
+        "version":"",
+        "Author":"sueRimn",
+        "Date":"Do not edit",
+        "LastEditors":"sueRimn",
+        "LastEditTime":"Do not Edit"
+    },
+    //函数注释
+    "fileheader.cursorMode": {
+        "name":"",
+        "test":"test font",
+        "msg":"",
+        "param":"",
+        "return":""
+    }
+```
+
+# 记录一次 vue 预加载 prerender-spa-plugin 插件的使用
+
+> **1.vue-cli3.0 配置**
+
+```javascript
+1. cnpm install prerender-spa-plugin --save (npm安装可能会报错，推荐使用cnpm)
+2. vue.config.js加入以下代码
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
+const path = require('path');
+module.exports = {
+    configureWebpack: config => {
+        if (process.env.NODE_ENV !== 'production') return;
+        return {
+            plugins: [
+                new PrerenderSPAPlugin({
+                    // 生成文件的路径，也可以与webpakc打包的一致。
+                    // 下面这句话非常重要！！！
+                    // 这个目录只能有一级，如果目录层次大于一级，在生成的时候不会有任何错误提示，在预渲染的时候只会卡着不动。
+                    staticDir: path.join(__dirname,'dist'),
+                    // 对应自己的路由文件，比如a有参数，就需要写成 /a/param1。
+                    routes: ['/', '/product','/about'],
+                    // 这个很重要，如果没有配置这段，也不会进行预编译
+                    renderer: new Renderer({
+                        inject: {
+                            foo: 'bar'
+                        },
+                        headless: false,
+                        // 在 main.js 中 document.dispatchEvent(new Event('render-event'))，两者的事件名称要对应上。
+                        renderAfterDocumentEvent: 'render-event'
+                    })
+                }),
+            ],
+        };
+    }
+}
+3.main.js添加
+new Vue({
+  router,
+  store,
+  render: h => h(App),
+  mounted () {
+    document.dispatchEvent(new Event('render-event'))
+  }
+}).$mount('#app')
+4.router.js 中设置mode:"history"
+5.npm run build 打包dist目录下会新增 product about对应的文件件，里面有生成好的对应路由的html文件，'/'路由下面的会在index.html中
+```
+
+> **2.vue-cli2.0 配置**
+
+```javascript
+1. cnpm install prerender-spa-plugin --save (npm安装可能会报错，推荐使用cnpm)
+2.webpack.prod.conf.js增加部分代码
+const path = require('path')
+const PrerenderSPAPlugin = require('prerender-spa-plugin')   //引用插件
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
+const webpackConfig = merge(baseWebpackConfig, {
+    plugins: [
+        // vue-cli生成的配置中就已有这个了，不要动
+        new HtmlWebpackPlugin({
+            filename: config.build.index,
+            template: 'index.html',
+            inject: true,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true
+            },
+            chunksSortMode: 'dependency'
+        }),
+        // 配置PrerenderSPAPlugin
+        new PrerenderSPAPlugin({
+            // 生成文件的路径，也可以与webpakc打包的一致。
+            staticDir: path.join(__dirname, '../dist'),
+
+            // 对应自己的路由文件，比如index有参数，就需要写成 /index/param1。
+            routes: ['/', '/product','/about','/contact','/join','/jzjh'],
+
+            // 这个很重要，如果没有配置这段，也不会进行预编译
+            renderer: new Renderer({
+                inject: {
+                  foo: 'bar'
+                },
+                headless: false,
+                // 在 main.js 中 document.dispatchEvent(new Event('render-event'))，两者的事件名称要对应上。
+                renderAfterDocumentEvent: 'render-event'
+            })
+        })
+    ]
+})
+3.在main.js中增加
+new Vue({
+  el: '#app',
+  router,
+  render: h => h(App),
+  mounted () {
+    document.dispatchEvent(new Event('render-event'))
+  }
+})
+4.router.js 中设置mode: "history"
+5.npm run build 打包dist目录下会新增 product about对应的文件件，里面有生成好的对应路由的html文件，'/'路由下面的会在index.html中
+```
+
+> 特别提醒
+
+> 1.vue-cli2.0 和 3.0 的设置大致一致，但有一个很不同
+> 在 3.0 中，设置 staticDir: path.join(**dirname,'dist'),
+> 在 2.0 中，设置 staticDir: path.join(**dirname,'../dist'),
+> 如果你把 3.0 的 staticDir 设置为 path.join(**dirname,'../dist')或> 者把 2.0 的 staticDir 设置为 path.join(**dirname,'dist')，运行 > npm run build 都会报错，这要特别注意！！！
+
+> 2.不管 2.0 还是 3.0 都需要设置 history 模式
+
+> 3.[node 启动本地服务教程]('https://www.cnblogs.com/nolaaaaa/p/9126385.html') 可以本地起一个服务测试一下(安装好后在 dist 目录下 shift + 右键在此处打开命令行 启动服务找到对应的 html 浏览)
+
+> [参考作者文件]('https://www.jianshu.com/p/6a4c0b281e7f')
