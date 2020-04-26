@@ -27,9 +27,9 @@
 # 用字符串返回一个键盘图形
 
 ```javascript
-;(_ =>
+;((_) =>
 	[..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(
-		x =>
+		(x) =>
 			((o += `/${(b = '_'.repeat(
 				(w =
 					x < y
@@ -77,7 +77,7 @@ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ________
 
 ```javascript
 var arr = [1, 2, 3]
-arr.forEach(a => {
+arr.forEach((a) => {
 	a = a * 2
 })
 // => [1,2,3]
@@ -86,11 +86,8 @@ arr.forEach(a => {
 -   当是引用类型，则可以改变数组
 
 ```javascript
-var arr = [
-	{ name: '张三', age: 18 },
-	{ name: '李四', age: 19 }
-]
-arr1.forEach(a => {
+var arr = [{ name: '张三', age: 18 }, { name: '李四', age: 19 }]
+arr1.forEach((a) => {
 	a.age = a.age + 1
 })
 //=> [{name:'张三',age:19},{name:'李四',age:20}]
@@ -156,11 +153,7 @@ console.log([...tempArr])
 
 ```javascript
 // import _ from 'lodash';
-var objects = [
-	{ x: 1, y: 2 },
-	{ x: 2, y: 1 },
-	{ x: 1, y: 2 }
-]
+var objects = [{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 1, y: 2 }]
 _.uniqWith(objects, _.isEqual)
 //=> [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
 ```
@@ -374,7 +367,7 @@ document.body.addEventListener(
 		e.preventDefault()
 	},
 	{
-		passive: false
+		passive: false,
 	}
 ) //passive 参数不能省略，用来兼容ios和android
 document.querySelector('body').addEventListener('touchend', function(e) {
@@ -560,3 +553,97 @@ new Vue({
 > 3.[node 启动本地服务教程]('https://www.cnblogs.com/nolaaaaa/p/9126385.html') 可以本地起一个服务测试一下(安装好后在 dist 目录下 shift + 右键在此处打开命令行 启动服务找到对应的 html 浏览)
 
 > [参考作者文件]('https://www.jianshu.com/p/6a4c0b281e7f')
+
+# 数组对象合并,并且根据自定义字段排序
+
+```javascript
+let roles = [
+	{ roleName: '本人', value: '' },
+	{ roleName: '配偶', value: '' },
+	{ roleName: '父母', value: '' },
+	{ roleName: '子女', value: '' }
+]
+let roles1 = [
+	{ roleName: '配偶', value: 'peiou' },
+	{ roleName: '本人', value: 'benren' },
+	{ roleName: '子女', value: 'zinv' },
+	{ roleName: '父母', value: 'fumu' }
+]
+roles = roles.map((item, index) => {
+	return { ...item, ...roles1[index] }
+})
+console.log(roles)
+>>
+(4) [{…}, {…}, {…}, {…}]
+0: {roleName: "配偶", value: "peiou"}
+1: {roleName: "本人", value: "benren"}
+2: {roleName: "子女", value: "zinv"}
+3: {roleName: "父母", value: "fumu"}
+length: 4
+roles.sort((a, b) => {
+//根据order数组的顺序排序
+let order = ['本人', '配偶', '父母', '子女']
+return order.indexOf(a.roleName) - order.indexOf(b.roleName)
+})
+console.log(roles)
+>>
+(4) [{…}, {…}, {…}, {…}]
+0: {roleName: "本人", value: "benren"}
+1: {roleName: "配偶", value: "peiou"}
+2: {roleName: "父母", value: "fumu"}
+3: {roleName: "子女", value: "zinv"}
+length: 4
+
+//存在一点问题，修改一下
+ roles = roles.map(a => {
+     roles1.forEach(b => {
+         if (a.roleName == b.roleName) {
+             a = b
+            }
+     })
+     return a
+})
+```
+
+# vue 过渡实现渐变出现输入框
+
+```javascript
+> html
+    <button @click="closeLoading">切换</button>
+    <transition name="slider">
+        <div v-if="loading">
+            <input type="text">
+        </div>
+    </transition>
+>js
+export default {
+    name: 'home',
+    data() {
+        return {
+            loading: false
+        }
+    },
+    methods: {
+        closeLoading: function() {
+            this.loading = !this.loading
+        }
+    },
+}
+>css
+.slider-enter-active {
+    transition: all 2s ease;
+}
+.slider-leave-active {
+    transition: all 2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slider-enter,
+.slider-leave-to {
+    transform: translateY(50px);
+    opacity: 0;
+}
+.slider-leave,
+.slider-enter-to {
+    transform: rotateY(-50px);
+    opacity: 1;
+}
+```
