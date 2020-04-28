@@ -647,3 +647,59 @@ export default {
     opacity: 1;
 }
 ```
+
+# vue 自定义 ajax 请求后的 loading 框
+
+> 1.组件（components）下面新建 loading.vue 写好自己的弹窗效果
+
+> 2.loading.vue 同级下面新建 loading.js
+
+```javascript
+import load from './loading.vue'
+import Vue from 'vue'
+
+let LoadingConstructor = Vue.extend(load)
+let instance = new LoadingConstructor({
+	el: document.createElement('div'),
+})
+instance.show = false
+let loading = {
+	show(options = {}) {
+		instance.show = true
+		console.log(options)
+		if (options) {
+			document.getElementsByTagName('body')[0].appendChild(instance.$el)
+			instance.text = options.text
+		}
+	},
+	hide() {
+		instance.show = false
+	},
+}
+export default {
+	install() {
+		if (!Vue.$loading) {
+			Vue.$loading = loading
+		}
+		Vue.mixin({
+			created() {
+				this.$loading = Vue.$loading
+			},
+		})
+	},
+}
+```
+
+> 3.main.js 下面
+
+```javascript
+import loading from './components/shop/loading'
+Vue.use(loading)
+```
+
+> 4.然后就可以在 axios 或者页面中直接使用了
+
+```javascript
+Vue.$loading.show()
+Vue.$loading.hide()
+```

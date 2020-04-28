@@ -2,43 +2,43 @@
 zipImg = function (path, cb) {  //图片压缩
     var img = new Image();
     img.src = path; // 传过来的图片路径在这里用。
-    img.onload = function() {
-     var that = this;
-     //生成比例
-     var w = that.width,
-      h = that.height,
-      scale = w / h;
-     w = 480; //|| w; //480  你想压缩到多大，改这里
-     h = w / scale;
-     //生成canvas
-     var canvas = document.createElement('canvas');
-     var ctx = canvas.getContext('2d');
-     canvas.width = w;
-     canvas.height = h;
-     ctx.drawImage(that, 0, 0, w, h);
-     var base64 = canvas.toDataURL('image/jpeg', 0.4); //1最清晰，越低越模糊
-     cb(base64);
+    img.onload = function () {
+        var that = this;
+        //生成比例
+        var w = that.width,
+            h = that.height,
+            scale = w / h;
+        w = 480; //|| w; //480  你想压缩到多大，改这里
+        h = w / scale;
+        //生成canvas
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = w;
+        canvas.height = h;
+        ctx.drawImage(that, 0, 0, w, h);
+        var base64 = canvas.toDataURL('image/jpeg', 0.4); //1最清晰，越低越模糊
+        cb(base64);
     }
-   }
+}
 
 //手机号校验
-function isValidMobile(phoneNum) {
+function isValidMobile (phoneNum) {
     return /^\d{11}$/.test(phoneNum);
 }
 //邮箱前端校验正则
-function isValidEmail(email) {
+function isValidEmail (email) {
     return /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email);
 }
 //中文名称
-function isValidName(name) {
+function isValidName (name) {
     return /^[\u4E00-\u9FA5]{2,4}$/.test(name)
 }
 //邮编前端校验正则
-function isValidPostCode(postCode) {
+function isValidPostCode (postCode) {
     return /^[1-9][0-9]{5}$/.test(postCode);
 }
 //身份证前端校验正则
-function isValidID(num) {
+function isValidID (num) {
     num = num.toUpperCase();
     if (!(/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(num))) {
         return false;
@@ -98,7 +98,7 @@ function isValidID(num) {
     return false;
 }
 //银行卡号前端正则校验
-function isValidBankNum(bankno) {
+function isValidBankNum (bankno) {
     var lastNum = bankno.substr(bankno.length - 1, 1); //取出最后一位（与luhn进行比较）
     var first15Num = bankno.substr(0, bankno.length - 1); //前15或18位
     var newArr = new Array();
@@ -153,7 +153,7 @@ function isValidBankNum(bankno) {
         return false;
     }
 }
-function gettoday() {
+function gettoday () {
     var date = new Date();
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
@@ -169,7 +169,7 @@ function gettoday() {
 
 
 //当前时间+3的后一年
-function addYear(date, years) {
+function addYear (date, years) {
 
     var date = new Date(date);
 
@@ -207,7 +207,7 @@ function addYear(date, years) {
     return time;
 }
 //判断是否是微信浏览器的函数
-function isWeiXin() {
+function isWeiXin () {
     //window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
     var ua = window.navigator.userAgent.toLowerCase();
     //通过正则表达式匹配ua中是否含有MicroMessenger字符串
@@ -218,7 +218,7 @@ function isWeiXin() {
     }
 }
 //解决微信浏览器问题
-function fixscroll() {
+function fixscroll () {
     if (isWeiXin()) {
         $("input,select").blur(function () {
             setTimeout(function () {
@@ -267,7 +267,7 @@ function fixscroll() {
     }
 })()
 
-function isWeiXinAndIos() {
+function isWeiXinAndIos () {
     let ua = '' + window.navigator.userAgent.toLowerCase()
     let isWeixin = /MicroMessenger/i.test(ua)
     let isIos = /\(i[^;]+;( U;)? CPU.+Mac OS X/i.test(ua)
@@ -275,7 +275,7 @@ function isWeiXinAndIos() {
 }
 
 //获取浏览器参数
-function getUrlParam(name) {
+function getUrlParam (name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
     if (r != null) return unescape(r[2]);
@@ -283,7 +283,7 @@ function getUrlParam(name) {
 }
 
 //当天日期加几天
-function addDate(date, days) {
+function addDate (date, days) {
     if (days == undefined || days == '') {
 
         days = 1;
@@ -326,7 +326,7 @@ function addDate(date, days) {
     return time;
 
 }
-function getTime() {
+function getTime () {
     var date = new Date();
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
@@ -349,7 +349,7 @@ function getTime() {
     return year + "-" + month + "-" + day + ' ' + hour + ':' + minute + ':' + second
 }
 //身份证获取年龄
-function GetAge(identityCard, proposalDate) {
+function GetAge (identityCard, proposalDate) {
     if (proposalDate) proposalDate = proposalDate.replace(/-/g, '/')
     var len = (identityCard + "").length;
     if (len == 0) {
@@ -384,7 +384,7 @@ function GetAge(identityCard, proposalDate) {
     // console.log('age:'+age)
     return age;
 }
-function getAgeBybirthday(birthday, proposalDate) {
+function getAgeBybirthday (birthday, proposalDate) {
     var birthDate = new Date(birthday);
     var nowDateTime = '';
     if (proposalDate == undefined) {
@@ -396,7 +396,7 @@ function getAgeBybirthday(birthday, proposalDate) {
     return age;
 }
 //判断出生天数是否大于多少天
-function birthdayCompare(idCard, day, proposalDate) {
+function birthdayCompare (idCard, day, proposalDate) {
     if (proposalDate) proposalDate = proposalDate.replace(/-/g, '/')
     var birthday = "";
     if (idCard != null && idCard != "") {
@@ -433,22 +433,22 @@ function birthdayCompare(idCard, day, proposalDate) {
     return date.getTime() <= now.getTime()
 }
 //session本地存储
-function setItem(key, value) {
+function setItem (key, value) {
     return sessionStorage.setItem(key, JSON.stringify(value));
 }
-function getItem(key) {
+function getItem (key) {
     let value = sessionStorage.getItem(key)
     if (value) return JSON.parse(value)
     else return undefined
 }
-function removeItem(key) {
+function removeItem (key) {
     window.sessionStorage.removeItem(key);
 }
 
 
 
 //生成uuid
-function UUID() {
+function UUID () {
     this.id = this.createUUID()
 }
 UUID.prototype.valueOf = function () {
@@ -507,7 +507,7 @@ UUID.rand = function (a) {
 
 
 
-function ajax_method(url, data, method, success) {
+function ajax_method (url, data, method, success) {
     // 异步对象
     var ajax = new XMLHttpRequest();
 
@@ -597,4 +597,16 @@ var getCookie = function (name) {
 */
 var delCookie = function (name) {
     setCookie(name, ' ', -1);
+};
+
+// 获取图片宽高
+export const getImgWidthAndHeight = (image) => new Promise((resolve) => {
+    const img = new Image();
+    img.src = image;
+    img.onload = () => {
+        resolve({
+            width: img.width,
+            height: img.height
+        });
     };
+});
