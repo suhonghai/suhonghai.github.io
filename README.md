@@ -73,7 +73,7 @@ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ________
 
 # forEach 的经验
 
--   当数组中元素是值类型，forEach 绝对不会改变数组
+> 1.当数组中元素是值类型，forEach 绝对不会改变数组
 
 ```javascript
 var arr = [1, 2, 3]
@@ -83,7 +83,7 @@ arr.forEach((a) => {
 // => [1,2,3]
 ```
 
--   当是引用类型，则可以改变数组
+> 2.当是引用类型，则可以改变数组
 
 ```javascript
 var arr = [{ name: '张三', age: 18 }, { name: '李四', age: 19 }]
@@ -93,7 +93,7 @@ arr1.forEach((a) => {
 //=> [{name:'张三',age:19},{name:'李四',age:20}]
 ```
 
--   forEach 不支持链式调用,有返回值的支持链式调用.
+> 3.forEach 不支持链式调用,有返回值的支持链式调用.
 
 ```javascript
 let arr = [1,2,3,4]
@@ -112,16 +112,23 @@ arr.filter(a=>{
 })
 ```
 
+> 4.后台返回的数据通过 forEach 处理时会赋值不成功，可以通过 JSON 先编码再解码解决
+
+```javasctipt
+ let b = res.data.data
+ b = JSON.parse(JSON.stringify(b))
+```
+
 # sort 排序
 
--   比较值类型
+> 1.比较值类型
 
 ```javascript
 [5,2,3,4].sort((a,b)=>{return a - b})
 =>比较值类型 a-b 从小到大 b-a从大到小
 ```
 
--   比较引用类型
+> 2.比较引用类型
 
 ```javascript
 [{name:'张三',age:'10'},{name:'李四',age:'19'}].sort((a,b)=>{return a.age - b.age})
@@ -130,7 +137,7 @@ arr.filter(a=>{
 
 # set 去重
 
--   new set() 得到的值是一个对象,可以使用 add()方法,add 相同的值添加不进去,但是添加的是相同的引用类型可以添加(它的缺点,不能去重元素是引用对象的数组)
+> 1.new set() 得到的值是一个对象,可以使用 add()方法,add 相同的值添加不进去,但是添加的是相同的引用类型可以添加(它的缺点,不能去重元素是引用对象的数组)
 
 ```javascript
 let tempArr = new Set([1,2,3,3,4,4,5])
@@ -702,4 +709,11 @@ Vue.use(loading)
 ```javascript
 Vue.$loading.show()
 Vue.$loading.hide()
+```
+
+# 页面平滑滚动
+
+```javascript
+ html, body { scroll-behavior:smooth; }
+
 ```
