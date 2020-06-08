@@ -86,7 +86,10 @@ arr.forEach((a) => {
 > 2.当是引用类型，则可以改变数组
 
 ```javascript
-var arr = [{ name: '张三', age: 18 }, { name: '李四', age: 19 }]
+var arr = [
+	{ name: '张三', age: 18 },
+	{ name: '李四', age: 19 },
+]
 arr1.forEach((a) => {
 	a.age = a.age + 1
 })
@@ -160,7 +163,11 @@ console.log([...tempArr])
 
 ```javascript
 // import _ from 'lodash';
-var objects = [{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 1, y: 2 }]
+var objects = [
+	{ x: 1, y: 2 },
+	{ x: 2, y: 1 },
+	{ x: 1, y: 2 },
+]
 _.uniqWith(objects, _.isEqual)
 //=> [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
 ```
@@ -363,13 +370,13 @@ function closure() {
 -   解决移动端苹果手机点击 input 会向上移动的问题和点击其他地方不会失去焦点
 
 ```javascript
-document.getElementById('pwd').addEventListener('focus', function() {
+document.getElementById('pwd').addEventListener('focus', function () {
 	document.body.scrollTop = 0
 })
 
 document.body.addEventListener(
 	'touchmove',
-	function(e) {
+	function (e) {
 		document.documentElement.scrollTop = 0
 		e.preventDefault()
 	},
@@ -377,7 +384,7 @@ document.body.addEventListener(
 		passive: false,
 	}
 ) //passive 参数不能省略，用来兼容ios和android
-document.querySelector('body').addEventListener('touchend', function(e) {
+document.querySelector('body').addEventListener('touchend', function (e) {
 	if (e.target.className != 'input') {
 		document.getElementById('pwd').blur()
 	}
@@ -716,4 +723,14 @@ Vue.$loading.hide()
 ```javascript
  html, body { scroll-behavior:smooth; }
 
+```
+
+# input 框改变 placeholder 字体大小和颜色
+
+```javascript
+    input::-webkit-input-placeholder {
+        font-size: 0.32rem;
+        font-weight: 300;
+        color: rgba(227, 184, 122, 1);
+    }
 ```
