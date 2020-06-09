@@ -734,3 +734,29 @@ Vue.$loading.hide()
         color: rgba(227, 184, 122, 1);
     }
 ```
+
+# 浏览器返回逻辑处理
+
+```javascript
+   destroyed() {
+        window.removeEventListener('popstate', this.goBack, false)
+    },
+    mounted() {
+        if (window.history && window.history.pushState) {
+            history.pushState(null, null, document.URL)
+            window.addEventListener('popstate', this.goBack, false)
+        }
+    },
+     methods: {
+        goBack() {
+            let backUrl = ''
+            let environment = process.env.VUE_APP_RUN_ENV//这是我这边定义的环境判断变量，你们可以根据自己的环境变量判断
+            if (environment == 'production') {
+                backUrl = 'https://www.zhihu.com/'
+            } else {
+                backUrl = 'https://www.zhihu.com/'
+            }
+            window.location.href = backUrl
+        }
+     }
+```
