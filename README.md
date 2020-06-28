@@ -787,3 +787,15 @@ Vue.$loading.hide()
 > git stash clear
 
 删除所有存储的进度。
+
+# 时间戳
+
+> JS 获取当日凌晨的时间戳
+
+```javascript
+new Date(new Date().toLocaleDateString()).getTime()
+
+new Date(new Date().setHours(0, 0, 0, 0)).getTime()
+
+new Date().setHours(0, 0, 0, 0)
+```
