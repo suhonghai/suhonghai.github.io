@@ -788,6 +788,20 @@ Vue.$loading.hide()
 
 删除所有存储的进度。
 
+# git 删除本地和远程分支
+
+1. git branch 查看本地所有分支
+
+2. git branch --delete 分支名 或者 git branch -d 分支名 删除本地分支
+
+3. git branch -D 分支名 强制删除本地分支
+
+4. git branch -a 查看远程本地所有分支
+
+5. git push origin --delete 分支名 删除远程分支
+
+6. git push origin -D 分支名 强制删除远程分支
+
 # 时间戳
 
 > JS 获取当日凌晨的时间戳
