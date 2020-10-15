@@ -802,6 +802,12 @@ Vue.$loading.hide()
 
 6. git push origin -D 分支名 强制删除远程分支
 
+# git 恢复删除的分支
+
+1. 使用 git log -g 找回之前提交的 commit
+2. 使用 git branch recover_branch[新分支] commit_id 命令用这个 commit 创建一个分支
+3. [参考作者文件]('https://blog.csdn.net/fdipzone/article/details/50616386')
+
 # 时间戳
 
 > JS 获取当日凌晨的时间戳
