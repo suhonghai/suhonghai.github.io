@@ -819,3 +819,31 @@ new Date(new Date().setHours(0, 0, 0, 0)).getTime()
 
 new Date().setHours(0, 0, 0, 0)
 ```
+
+# 对象合并
+
+```javascript
+let arr1 = {
+	a: 1,
+	b: 2,
+	c: 3,
+}
+let arr2 = {
+	d: 4,
+	e: 5,
+	a: 6,
+}
+//方法一拓展运算符，后面相同的属性覆盖前一个
+let arr3 = { ...arr1, ...arr2 }
+//方法一拓展运算符，后面相同的属性覆盖前一个
+
+//方法二Object.assign()，后面相同的属性覆盖前一个
+let arr3 = Object.assign(arr1, arr2)
+//方法二Object.assign()，后面相同的属性覆盖前一个
+
+//方法三Object.keys()，相同的属性只取第一个
+Object.keys(arr1).forEach((key) => {
+	arr2[key] = arr1[key]
+})
+//方法三Object.keys()，相同的属性只取第一个
+```
