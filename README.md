@@ -808,6 +808,11 @@ Vue.$loading.hide()
 2. 使用 git branch recover_branch[新分支] commit_id 命令用这个 commit 创建一个分支
 3. [参考作者文件]('https://blog.csdn.net/fdipzone/article/details/50616386')
 
+# git 合并分支部分代码
+
+1. git checkout B // 首先切换到 B 分支(b 分支合并 A 分支中的 a，b 文件)
+2. git checktou A a b // 然后从 A 中抽取 a、b 两个选定的文件（a,b 为文件路径）
+
 # 时间戳
 
 > JS 获取当日凌晨的时间戳
