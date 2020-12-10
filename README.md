@@ -852,3 +852,27 @@ Object.keys(arr1).forEach((key) => {
 })
 //方法三Object.keys()，相同的属性只取第一个
 ```
+
+# 监听滚动结束行为
+
+```javascript
+let t1 = 0
+let t2 = 0
+let timer = null // 定时器
+
+// scroll监听
+window.addEventListener(
+	'scroll',
+	() => {
+		clearTimeout(timer)
+		timer = setTimeout(() => {
+			t2 = document.documentElement.scrollTop || document.body.scrollTop
+			if (t2 == t1) {
+				console.log('滚动结束了')
+			}
+		}, 100)
+		t1 = document.documentElement.scrollTop || document.body.scrollTop
+	},
+	true
+)
+```
