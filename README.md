@@ -813,6 +813,10 @@ Vue.$loading.hide()
 1. git checkout B // 首先切换到 B 分支(b 分支合并 A 分支中的 a，b 文件)
 2. git checktou A a b // 然后从 A 中抽取 a、b 两个选定的文件（a,b 为文件路径）
 
+# 本地端口被占用kill占用端口的程序
+1. 命令 lsof -i tcp:port 查看该端口被什么程序占用显示PID
+2. 使用kill -9 + pid
+3. 重启项目查看端口是否被占用
 # 时间戳
 
 > JS 获取当日凌晨的时间戳
